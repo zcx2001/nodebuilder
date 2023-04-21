@@ -1,7 +1,9 @@
 FROM ubuntu:20.04
 
-RUN sed -i -E 's/(archive|security|ports).ubuntu.(org|com)/mirrors.aliyun.com/g' /etc/apt/sources.list && \
-    DEBIAN_FRONTEND=noninteractive apt-get update && \
+# github 上编译时不需要替换源
+# sed -i -E 's/(archive|security|ports).ubuntu.(org|com)/mirrors.aliyun.com/g' /etc/apt/sources.list && \
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get upgrade -y && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y ca-certificates tzdata curl git && \
     ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
