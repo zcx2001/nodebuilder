@@ -27,4 +27,3 @@ jobs:
           # push: true
           tags: |
             zcx2001/nodebuilder:latest
-            # zcx2001/nodebuilder:${{ github.ref_name }} 
