@@ -1,5 +1,7 @@
 FROM ubuntu:20.04
 
+ENV PATH=/root/.nvm/versions/node/v16.20.0/bin/:$PATH
+
 # github 上编译时不需要替换源
 # sed -i -E 's/(archive|security|ports).ubuntu.(org|com)/mirrors.aliyun.com/g' /etc/apt/sources.list && \
 
@@ -14,4 +16,4 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     nvm install 16.20.0 && nvm alias default 16.20.0 && \
     rm -rf /var/lib/apt/lists/*
 
-ENTRYPOINT ["bash", "-ic"]
+ENTRYPOINT ["bash", "-c"]
