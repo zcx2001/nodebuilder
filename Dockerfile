@@ -7,7 +7,7 @@ ENV PATH=/root/.nvm/versions/node/v16.20.0/bin/:$PATH
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get upgrade -y && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y ca-certificates tzdata curl git && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y ca-certificates tzdata curl wget git rsync gnupg && \
     ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     dpkg-reconfigure --frontend noninteractive tzdata && \
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && \
